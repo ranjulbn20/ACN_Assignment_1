@@ -21,6 +21,7 @@ import termcolor as T
 import sys
 import os
 import math
+import numpy as np
 
 # TODO: Don't just read the TODO sections in this code.  Remember that
 # one of the goals of this assignment is for you to learn how to use
@@ -225,6 +226,9 @@ def bufferbloat():
     # TODO: compute average (and standard deviation) of the fetch
     # times.  You don't need to plot them.  Just note it in your
     # README and explain.
+    wdarr = np.array(download_time).astype(np.float)
+    print "Mean of download time: %lf" % np.mean(wdarr)
+    print "Standard deviation of download time: %lf" % np.std(wdarr)
 
     stop_tcpprobe()
     if qmon is not None:
