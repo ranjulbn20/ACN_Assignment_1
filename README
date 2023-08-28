@@ -34,5 +34,5 @@ i) Reduce the queue size. This can be clearly seen as in q20 we get better respo
 ii) We can use Random Early Detection (RED). It monitors the length of the queue and selectively drops or marks packets before the queue becomes completely full. 
 This signals to the sender that congestion is starting to occur, prompting it to reduce its sending rate. 
 
-5.
-
+5. When you re-run the emulation we see changes due to various factors. One of the reasons can be that due to different traffic patterns, the network congestion varies.
+There also may be noise due to which we see changes. The timing of packet arrivals and departures can also introduce a level of randomness to the emulation.
