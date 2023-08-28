@@ -1,12 +1,23 @@
+
 Name: Ranjul Bandyopadhyay
 Entry No.: 2023JCS2541
 
-Q-20\
-Mean of download time: 0.270800\
-Standard deviation of download time: 0.069098\
+Q-20
+Mean of download time: 0.270800
+Standard deviation of download time: 0.069098
 
-Q-100\
-Mean of download time: 1.008000\
-Standard deviation of download time: 0.224190\
+Q-100
+Mean of download time: 1.008000
+Standard deviation of download time: 0.224190
 
-1. 
+1. We see a difference in webpage fetch times with short and large router buffers due to buferbloat happening here. 
+This can be seen as in q100 the mean delay is almost 3 times that in q20. In TCP we use a sliding window mechanism where 
+the number of unacknowledged packets that can be in-flight is equal to its window size. In case of large buffer size, the 
+TCP keeps increasing its window size until the buffer is filled. Due to this TCP is unaware of the dropped packets and it 
+keeps sending at high rates. Also since the buffer size is large, it takes more time to empty it. In contrast, for small
+buffer size, the TCP congestion avoidance is achieved more quickly due to small buffer size so TCP keeps sending packets
+at a more manageable rate.
+
+2. txqueuelen=1000 and MTU=1500.
+Latency = (1000 packets x 1500 bytes x 8 bits)/(100Mbps) = 0.12s 
+The maximum time a packet might wait in the queue is 0.12s at worst
