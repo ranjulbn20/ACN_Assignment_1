@@ -15,7 +15,7 @@ This can be seen as in q100 the mean delay is almost 3 times that in q20. In TCP
 the number of unacknowledged packets that can be in-flight is equal to its window size. In the case of a large buffer size, the 
 TCP keeps increasing its window size until the buffer is filled. Due to this TCP is unaware of the dropped packets and it 
 keeps sending at high rates. Also since the buffer size is large, it takes more time to empty it. In contrast, for small
-buffer size, the TCP congestion avoidance is achieved more quickly due to the small buffer size so TCP keeps sending packets
+buffer sizes, the TCP congestion avoidance is achieved more quickly due to the small buffer size so TCP keeps sending packets
 at a more manageable rate.
 
 2. txqueuelen=1000 and MTU=1500.
@@ -28,4 +28,11 @@ more time waiting in the queue before being transmitted.
 In general,
 RTT = Propagation Delay + Queue Delay + Transmission Delay, thus RTT is directly proportional to Queue Delay assuming Propagation and Transmission Delay
 to be constant
+
+4. Two ways to mitigate the bufferbloat problem:
+i) Reduce the queue size. This can be clearly seen as in q20 we get better response time than q100.
+ii) We can use Random Early Detection (RED). It monitors the length of the queue and selectively drops or marks packets before the queue becomes completely full. 
+This signals to the sender that congestion is starting to occur, prompting it to reduce its sending rate. 
+
+5.
 
